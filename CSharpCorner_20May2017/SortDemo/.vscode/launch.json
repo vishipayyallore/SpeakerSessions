@@ -5,30 +5,16 @@
    "version": "0.2.0",
    "configurations": [
         {
-            "name": ".NET Core Launch (App 1)",
+            "name": ".NET Core Launch (console)",
             "type": "coreclr",
             "request": "launch",
             "preLaunchTask": "build",
             // If you have changed target frameworks, make sure to update the program path.
-            "program": "${workspaceRoot}/App1/bin/Debug/netcoreapp1.1/App1.dll",
+            "program": "${workspaceRoot}/bin/Debug/netcoreapp1.1/SortDemo.dll",
             "args": [],
-            "cwd": "${workspaceRoot}/App1",
+            "cwd": "${workspaceRoot}",
             // For more information about the 'console' field, see https://github.com/OmniSharp/omnisharp-vscode/blob/master/debugger-launchjson.md#console-terminal-window
             "console": "externalTerminal",
-            "stopAtEntry": false,
-            "internalConsoleOptions": "openOnSessionStart"
-        },
-        {
-            "name": ".NET Core Launch (App 2)",
-            "type": "coreclr",
-            "request": "launch",
-            "preLaunchTask": "build",
-            // If you have changed target frameworks, make sure to update the program path.
-            "program": "${workspaceRoot}/App2/bin/Debug/netcoreapp1.1/App2.dll",
-            "args": [],
-            "cwd": "${workspaceRoot}/App1",
-            // For more information about the 'console' field, see https://github.com/OmniSharp/omnisharp-vscode/blob/master/debugger-launchjson.md#console-terminal-window
-            "console": "internalConsole",
             "stopAtEntry": false,
             "internalConsoleOptions": "openOnSessionStart"
         },
