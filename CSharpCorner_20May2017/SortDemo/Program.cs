@@ -1,6 +1,5 @@
 ﻿using System.Linq;
 using static System.Console;
-using System;
 
 namespace SortDemo
 {
@@ -8,8 +7,6 @@ namespace SortDemo
     {
         static void Main(string[] args)
         {
-			ForegroundColor = ConsoleColor.Cyan; 
-			Write( "\nPlease enter an array of integers with space between Ex: {2 3 5 1}:");
 			
             var numbers = ReadLine().Trim().Split(' ').Select(int.Parse).ToArray();
             var currentValue = 0;
