@@ -7,11 +7,14 @@ namespace SortDemo
     {
         static void Main(string[] args)
         {
+			
+			Write( "\nPlease enter an array of integers with space between Ex: {2 3 5 1}:");
+			
             var numbers = ReadLine().Trim().Split(' ').Select(int.Parse).ToArray();
             var currentValue = 0;
             var totalSwaps = 0;
-
-            for (int i = 0; i < numbers.Length; i++)
+			
+			for (int i = 0; i < numbers.Length; i++)
             {
                 int numberOfSwaps = 0;
 
