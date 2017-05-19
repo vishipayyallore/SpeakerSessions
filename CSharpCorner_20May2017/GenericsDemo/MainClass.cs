@@ -13,12 +13,12 @@ namespace GenericsDemo
 
             var arrayPrinter = new ArrayPrinter();
 
-            arrayPrinter.PrintArray(numbers);
-            arrayPrinter.PrintArray(vowels);
-            arrayPrinter.PrintArray(names);
+            arrayPrinter.PrintArray(numbers)
+                        .PrintArray(vowels)
+                        .PrintArray(names);
 
             WriteLine("\n\nPress any key ....");
-            //ReadKey();
+            Read();
         }
     }
 }
