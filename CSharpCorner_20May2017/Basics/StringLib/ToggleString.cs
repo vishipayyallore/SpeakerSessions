@@ -5,7 +5,7 @@ namespace StringLib
     public class ToggleString 
     {
         #region Methods
-        public void Run()
+        public void Process()
         {
             var data = ReadLine();
             var output = 0;

@@ -4,6 +4,9 @@
     <TargetFramework>netcoreapp1.1</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
+    <PackageReference Include="System.Runtime.Serialization.Json">
+      <Version>*</Version>
+    </PackageReference>
     <ProjectReference Include="../ArrayLib/ArrayLib.csproj" />
     <ProjectReference Include="../StringLib/StringLib.csproj" />
   </ItemGroup>
