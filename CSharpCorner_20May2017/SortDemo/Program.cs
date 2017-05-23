@@ -5,9 +5,12 @@ namespace SortDemo
 {
     class Program
     {
+	/// <summary>
+        /// Same code works in Ubuntu 14.04 and Windows 10. 
+        /// </summary>
         static void Main(string[] args)
         {
-            WriteLine("Enter list of number separated with space Ex: { 1 2 3 4 5}:");
+            WriteLine("Enter list of number separated with space Ex: {1 2 3 4 5}:");
 	    var numbers = ReadLine().Trim().Split(' ').Select(int.Parse).ToArray();
             var currentValue = 0;
             var totalSwaps = 0;
