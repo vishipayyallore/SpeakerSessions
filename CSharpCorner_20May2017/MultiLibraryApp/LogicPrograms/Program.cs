@@ -10,6 +10,7 @@ namespace LogicPrograms
     /// <summary>
     /// Project created in Windows 10. 
     /// Updated in Ubuntu 14.04.
+    /// Updated in Mac OS X too.
     /// </summary>
     class Program
     {
