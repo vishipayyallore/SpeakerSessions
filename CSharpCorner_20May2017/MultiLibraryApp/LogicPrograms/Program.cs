@@ -21,7 +21,6 @@ namespace LogicPrograms
                 RunPrograms(current.AssemblyName, current.MethodName);
             }
 
-
             WriteLine("\n\nPress any key ...");
             ReadKey();
         }
