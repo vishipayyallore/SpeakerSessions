@@ -9,5 +9,6 @@
     </PackageReference>
     <ProjectReference Include="../DataCore/DataCore.csproj" />
     <ProjectReference Include="../ArrayLibrary/ArrayLibrary.csproj" />
+    <ProjectReference Include="../StringLibrary/StringLibrary.csproj" />
   </ItemGroup>
 </Project>
