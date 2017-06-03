@@ -18,7 +18,7 @@ namespace LogicPrograms
 
             foreach (var current in metadata)
             {
-                RunPrograms(current.AssemblyName, current.MethodName);
+                ExecuteMethods(current);
             }
 
             WriteLine("\n\nPress any key ...");
@@ -26,12 +26,12 @@ namespace LogicPrograms
         }
 
         #region Private Methods.
-        private static void RunPrograms(string assemblyName, string methodName)
+        private static void ExecuteMethods(Metadata currentAssembly)
         {
-            var programsAssembly = Assembly.Load(new AssemblyName(assemblyName));
+            var programsAssembly = Assembly.Load(new AssemblyName(currentAssembly.AssemblyName));
             foreach (var currentClass in programsAssembly.GetTypes())
             {
-                var currentMethod = currentClass.GetMethod(methodName);
+                var currentMethod = currentClass.GetMethod(currentAssembly.MethodName);
                 WriteLine($"{currentClass.Name} ....");
                 currentMethod.Invoke(System.Activator.CreateInstance(currentClass), null);
             }
