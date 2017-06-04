@@ -1,4 +1,9 @@
-﻿using System;
+﻿using static System.Console;
+using System.Reflection;
+using System.Collections.Generic;
+using System.IO;
+using System.Runtime.Serialization.Json;
+using DataCore;
 
 namespace StringPrograms
 {
@@ -6,7 +11,35 @@ namespace StringPrograms
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            var metadata = GetMetadata("appsettings.json");
+
+            foreach (var current in metadata)
+            {
+                ExecuteMethods(current);
+            }
+
+            WriteLine("\n\nPress any key ...");
+            ReadKey();
         }
+
+        #region Private Methods.
+        private static void ExecuteMethods(Metadata currentAssembly)
+        {
+            var programsAssembly = Assembly.Load(new AssemblyName(currentAssembly.AssemblyName));
+            foreach (var currentClass in programsAssembly.GetTypes())
+            {
+                var currentMethod = currentClass.GetMethod(currentAssembly.MethodName);
+                WriteLine($"{currentClass.Name} ....");
+                currentMethod.Invoke(System.Activator.CreateInstance(currentClass), null);
+            }
+        }
+
+        static List<Metadata> GetMetadata(string metadataFilePath)
+        {
+            var metadataFileStream = File.Open(metadataFilePath, FileMode.Open);
+            var serializer = new DataContractJsonSerializer(typeof(List<Metadata>));
+            return (List<Metadata>)serializer.ReadObject(metadataFileStream);
+        }
+        #endregion
     }
 }

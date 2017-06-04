@@ -1,8 +1,13 @@
 <Project Sdk="Microsoft.NET.Sdk">
-
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp1.1</TargetFramework>
   </PropertyGroup>
-
+  <ItemGroup>
+    <PackageReference Include="System.Runtime.Serialization.Json">
+      <Version>*</Version>
+    </PackageReference>
+    <ProjectReference Include="../DataCore/DataCore.csproj" />
+    <ProjectReference Include="../StringLibrary/StringLibrary.csproj" />
+  </ItemGroup>
 </Project>
