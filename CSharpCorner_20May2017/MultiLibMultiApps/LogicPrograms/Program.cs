@@ -17,7 +17,7 @@ namespace LogicPrograms
         static void Main(string[] args)
         {
             var metadata = GetMetadata("appsettings.json");
-
+            ForegroundColor = System.ConsoleColor.Green;
             foreach (var current in metadata)
             {
                 ExecuteMethods(current);
