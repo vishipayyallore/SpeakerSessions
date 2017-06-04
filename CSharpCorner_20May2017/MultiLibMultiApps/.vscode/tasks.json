@@ -4,7 +4,7 @@
     "isShellCommand": true,
     "args": [],
     "options": {
-        "cwd": "${fileDirName}"
+        "cwd": "${fileDirname}"
     },
     "tasks": [
         {
