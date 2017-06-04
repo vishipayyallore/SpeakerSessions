@@ -7,6 +7,11 @@ using DataCore;
 
 namespace StringPrograms
 {
+    /// <summary>
+    /// Project created in Mac OS X.
+    /// Updated in Windows 10.  
+    /// Commented in Ubuntu 14.04.
+    /// </summary>
     class Program
     {
         static void Main(string[] args)
