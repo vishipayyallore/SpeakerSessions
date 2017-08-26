@@ -27,7 +27,7 @@ namespace StringLibrary
                     output = currentChar;
                 }
                 //Write($"{(char)output}");
-                _output.Append(output);
+                _output.Append((char)output);
             }
             return _output.ToString();
         }

@@ -9,10 +9,10 @@ namespace StringLibrary.Tests
         public void Test1()
         {
             var _toggleString = new ToggleString1();
-            var output = _toggleString.Process("Shivas");
-
+            var output = _toggleString.Process("Shiva");
+ 
             Console.WriteLine(output);
-            Assert.True("sHIVA".Equals(output));
+            Assert.Equal(output, "sHIVA");
         }
     }
 }
