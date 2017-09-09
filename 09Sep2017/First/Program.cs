@@ -1,4 +1,5 @@
 ﻿using System;
+using static System.Console;
 
 namespace First
 {
@@ -6,8 +7,8 @@ namespace First
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Dot Net Works in Ubuuntu!!!");
-            
+            WriteLine("Dot Net Works in Ubuuntu!!!");
+            WriteLine("It also works in Windows 10!");
         }
     }
 }
