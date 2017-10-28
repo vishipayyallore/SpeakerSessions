@@ -1,0 +1,40 @@
+Solution
+----------
+mkdir WebApiTestingBasics
+cd .\WebApiTestingBasics\
+dotnet new sln
+
+Api Project
+--------------------
+mkdir TodoApi
+cd TodoApi
+dotnet new webapi
+dotnet sln add .\TodoApi\TodoApi.csproj
+
+Test Project
+----------------
+mkdir TodoApi.Tests
+cd TodoApi.Tests
+dotnet new xunit
+dotnet add reference ../TodoApi\TodoApi.csproj
+dotnet sln add .\TodoApi.Tests\TodoApi.Tests.csproj
+dotnet test
+
+Boolean
+Assert.True()
+
+String
+Assert.Equal("Shiva Sai", person.FullName);
+Assert.Contains("ah Sm", person.FullName);
+Assert.Equal("Sarah Smith", person.FullName, ignoreCase: true);
+
+Numeric
+Assert.InRange(bank.Amount, 101, 200);
+
+Floating Point
+Assert.Equal(166.667, bank.Interest, 3);
+
+Collection Asserts
+Assert.Contains("Approver", bank.Approvers);
+Assert.DoesNotContain("Manager", bank.Approvers);
+

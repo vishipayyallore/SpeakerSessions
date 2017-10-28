@@ -1,0 +1,29 @@
+﻿using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
+
+namespace TodoApi.Controllers
+{
+
+    [Route("api/[controller]")]
+    public class TodoController : Controller
+    {
+
+        List<TodoItem> _todoItems;
+
+        public TodoController()
+        {
+            _todoItems = new List<TodoItem>()
+            {
+                new TodoItem() {Id=1, Name="Task 1", IsComplete=false},
+                new TodoItem() {Id=2, Name="Task 2", IsComplete=false},
+                new TodoItem() {Id=3, Name="Task 3", IsComplete=false},
+                new TodoItem() {Id=4, Name="Task 4", IsComplete=false},
+            };
+        }
+
+        public IActionResult Get()
+        {
+            return Json(_todoItems);
+        }
+    }
+}
