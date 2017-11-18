@@ -25,5 +25,26 @@ namespace TodoApi.Controllers
         {
             return Json(_todoItems);
         }
+
+        [HttpGet("{id}")]
+        public IActionResult Get(int id)
+        {
+            if ((id < 0) || (id > 3))
+            {
+                return BadRequest($"Invalid request for id {id}");
+            }
+
+            return Json(_todoItems[id]);
+        }
+
+        [HttpPost("StoreTask")]
+        public IActionResult StoreTask(TodoItem todoItem)
+        {
+            //Data base activity...
+
+            return Ok("Task Stored");
+        }
+
     }
+
 }

@@ -24,5 +24,26 @@ namespace TodoApi.Tests
             Assert.IsType<TodoItem>(todoItems.FirstOrDefault());
         }
 
+        [Fact]
+        public void ReturnBadRequest()
+        {
+            IActionResult result = _todoController.Get(-1);
+
+            var badRequestResult = Assert.IsType<BadRequestObjectResult>(result);
+
+            Assert.Equal("Invalid request for id -1", badRequestResult.Value);
+        }
+
+        [Fact]
+        public void TaskStoredOk()
+        {
+            IActionResult result = _todoController.StoreTask(null);
+
+            var okResult = Assert.IsType<OkObjectResult>(result);
+
+            Assert.Equal("Task Stored", okResult.Value);
+        }
+
+
     }
 }

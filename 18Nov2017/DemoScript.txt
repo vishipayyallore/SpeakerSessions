@@ -3,6 +3,127 @@ Solution
 mkdir WebApiTestingBasics
 cd .\WebApiTestingBasics\
 dotnet new sln
+Positive 3
+Negative 2
+All In
+
+        [Theory]
+        [InlineData("012345-H")]
+        [InlineData("012345-M")]
+        [InlineData("012345-L")]
+        [Trait("ToDoItem", "ModelClass")]
+        public void AcceptValidCategories(string category)
+        {
+            todoItem = new TodoItem { Category = category };
+            Assert.True(todoItem.IsValid());
+        }
+
+        [Theory]
+        [InlineData("012345-1")]
+        [InlineData("012345-B")]
+        [InlineData("012345-P")]
+        [InlineData("012345-R")]
+        [InlineData("012345-X")]
+        [InlineData("012345-Z")]
+        [InlineData("012345- ")]
+        [InlineData("012345-a")]
+        [InlineData("012345-q")]
+        [InlineData("012345-y")]
+        [Trait("ToDoItem", "ModelClass")]
+        public void RejectInvalidCategories(string category)
+        {
+            todoItem = new TodoItem { Category = category };
+            Assert.False(todoItem.IsValid());
+        }
+
+
+        [Theory]
+        [InlineData("0012345-A")]
+        [InlineData("X12345-A")]
+        [InlineData("01234X-A")]
+        [Trait("ToDoItem", "ModelClass")]
+        public void RejectInvalidCategory(string category)
+        {
+            todoItem = new TodoItem { Category = category };
+            Assert.False(todoItem.IsValid());
+        }
+
+
+        [Theory]
+        [InlineData("      -A")]
+        [InlineData("  1   -A")]
+        [InlineData("1     -A")]
+        [InlineData("     1-A")]
+        [Trait("ToDoItem", "ModelClass")]
+        public void RejectInvalidNumbersInCategory(string category)
+        {
+            todoItem = new TodoItem { Category = category };
+
+            Assert.False(todoItem.IsValid());
+        }
+
+        [Theory]
+        [InlineData("        ")]
+        [InlineData("")]
+        [Trait("ToDoItem", "ModelClass")]
+        public void RejectEmptyCategory(string category)
+        {
+            todoItem = new TodoItem { Category = category };
+
+            Assert.False(todoItem.IsValid());
+        }
+
+        [Fact]
+        [Trait("ToDoItem", "ModelClass")]
+        public void ThrowExceptionWhenCategoryIsNull()
+        {
+            todoItem = new TodoItem { Category = null };
+
+            Assert.Throws<ArgumentNullException>(() => todoItem.IsValid());
+        }
+
+http://localhost:21496/api/todo/4
+
+
+[Fact]
+        public void TaskStoredOk()
+        {
+
+            IActionResult result = _todoController.StoreTask(null);
+
+            var okResult = Assert.IsType<OkObjectResult>(result);
+
+            Assert.Equal("Task Stored", okResult.Value);
+        }
+
+[Fact]
+        public void ReturnBadRequest()
+        {
+            var sut = new ValuesController();
+
+            IActionResult result = sut.Get(0);
+
+            var badRequestResult = Assert.IsType<BadRequestObjectResult>(result);
+
+            Assert.Equal("Invalid request for id 0", badRequestResult.Value);
+        }
+
+        [HttpGet("{id}")]
+        public IActionResult Get(int id)
+        {
+            if ( (id < 0) || (id > 3))
+            {
+                return BadRequest($"Invalid request for id {id}");
+            }
+
+            return Json(_todoItems[id]);
+        }
+
+        [HttpPost("StoreTask")]
+        public IActionResult StoreTask(TodoItem todoItem)
+        {
+            return Ok("Task Stored");
+        }
 
 Api Project
 --------------------
