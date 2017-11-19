@@ -8,7 +8,7 @@ namespace TodoApi.Controllers
     public class TodoController : Controller
     {
 
-        List<TodoItem> _todoItems;
+        private List<TodoItem> _todoItems;
 
         public TodoController()
         {
